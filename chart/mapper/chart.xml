@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.chart">
+	<select id="selectMainChart" resultType="ChartVO">
+		<![CDATA[
+			select *
+			from jobgraph
+			where job=#{job} and job_detail=#{jobDetail} and graph_type=#{graphType}
+		]]>	
+	</select>
+	
+	<select id="selectChart" resultType="ChartVO" parameterType="java.lang.String">
+		<![CDATA[
+			select *
+			from jobgraph
+			where job=#{job} and job_detail='전체'
+		]]>	
+	</select>
+	<select id="selectDetailChart" resultType="ChartVO" parameterType="java.lang.String">
+		<![CDATA[
+			select *
+			from jobgraph
+			where job=#{job} and job_detail=#{jobDetail}
+		]]>
+	</select>
+</mapper>

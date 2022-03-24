@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+	<definition name="/job/chart" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/chart/chart.jsp" />
+	</definition>
+	<definition name="/job/chartGraphType" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/chart/chartGraphType.jsp"/>
+	</definition>
+</tiles-definitions>   

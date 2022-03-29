@@ -9,91 +9,65 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<!-- <script>
-
-	$(document).ready(function button(){
-		$("#button").click(function(){
-			$.ajax({type : 'get',
-					url :'/job/detailChart.do',
-					async : false,
-					data : 	{job:"빅데이터AI",
-							jobDetail:"머신러닝"}
-					success: function(data,textStatus){
-						var job = data.job;
-						var jobDetail = data.jobDetail;
-						var StrDom="";
-						strDom += "'<img src=' + job + '_'+jobDetail+'근무형태.png'+'>'";
-						$('#image').append(strDom);
-					}
-			});
-		});
-		
-	});
-</script> -->
+<link rel="stylesheet" href="${contextPath}/resources/css/chartHeader.css?ver=1">
+<link rel="stylesheet" href="${contextPath}/resources/css/chart.css?ver=1">
 </head>
 <body>
-
-
-<c:if test="${chartVO.job eq '전체'}">
-	<a href='${contextPath}/job/detailChart.do?job=빅데이터AI'>빅데이터 AI</a>
-	<a href='${contextPath}/job/detailChart.do?job=웹프로그래머'>웹프로그래머</a>
-	<a href='${contextPath}/job/detailChart.do?job=퍼블리싱UI개발'>퍼블리싱UI개발</a>
-	<a href='#'>빅데이터 AI</a>
-	<a href='#'>빅데이터 AI</a>
-	<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}_${chartVO.graphType}.png' alt="전체그래프">
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}$&jobDetail=${chartVO.jobDetail}">${chartVO.jobDetail}</a>
-</c:if>
-<c:if test="${chartVO.job eq '빅데이터AI'}">
-	<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}.png' alt="직종그래프">
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=데이터분석">데이터분석</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=머신러닝">머신러닝</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=빅데이터">빅데이터</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=인공지능">인공지능</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=파이썬">파이썬</a>
-</c:if>
-<c:if test="${chartVO.job eq '웹프로그래머'}">
-	<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}.png' alt="직종그래프">
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=jsp">jsp</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=백엔드">백엔드</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=웹개발">웹개발</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=자바">자바</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=프론트">프론트</a>
-</c:if>
-<c:if test="${chartVO.job eq '퍼블리싱UI개발'}">
-	<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}.png' alt="직종그래프">
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=css">css</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=xml">xml</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=웹표준">웹표준</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=자바스크립">자바스크립</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=퍼블리셔">퍼블리셔</a>
-</c:if>
-<c:if test="${chartVO.job eq '#'}">
-	<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}.png' alt="직종그래프">
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=데이터분석">데이터분석</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=머신러닝">머신러닝</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=빅데이터">빅데이터</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=인공지능">인공지능</a>
-	<a href="${contextPath}/job/detailChart.do?job=${chartVO.job}&jobDetail=파이썬">파이썬</a>
-</c:if>
-		
-
-	
-	<%-- 
-	<a href='${contextPath}/job/detailChart.do?job=웹프로그래머'>웹프로그래머</a>
-	<a href='${contextPath}/job/detailChart.do?job=퍼블리싱UI개발'>퍼블리싱UI개발</a>
-		<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}_${chartVO.graphType}.png' alt="전체그래프">
-		<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_전체.png' alt="직종전체그래프">
-		<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}_${chartVO.graphType}.png' alt="직무별그래프">
-		<button id='button'>데이터분석</button>
-		<a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=머신러닝">머신러닝</a>
-		<a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=빅데이터">빅데이터</a>
-		<a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=인공지능">인공지능</a>
-		<a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=파이썬">파이썬</a>
-		<img src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}_근무형태.png' alt="직종근무형태그래프">
-		<div id="image"></div>
-		a
-	<div>${chartVO.job}${chartVO.jobDetail}${chartVO.graphType}
-	${chartVO.job}_${chartVO.jobDetail}_${chartVO.graphType}</div>
-	 --%>
+<div class='contain'>
+	<ul id="main-menu">
+		<li>
+			<a class='main-menu-title' href="${contextPath}/job/detailChart.do?job=웹프로그래머">웹프로게이머</a>
+			<ul id="sub-menu">
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=웹프로그래머&jobDetail=웹개발">웹개발</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=웹프로그래머&jobDetail=자바">자바</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=웹프로그래머&jobDetail=백엔드">백엔드</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=웹프로그래머&jobDetail=프론트">프론트</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=웹프로그래머&jobDetail=jsp">jsp</a></li>
+			</ul>
+		</li>	
+		<li>
+			<a class='main-menu-title' href="${contextPath}/job/detailChart.do?job=퍼블리싱UI개발">HTML,퍼블리싱,UI개발</a>
+			<ul id="sub-menu">
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=퍼블리싱UI개발&jobDetail=css">css</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=퍼블리싱UI개발&jobDetail=퍼블리셔">퍼블리셔</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=퍼블리싱UI개발&jobDetail=웹표준">웹표준</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=퍼블리싱UI개발&jobDetail=자바스크립">자바스크립트</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=퍼블리싱UI개발&jobDetail=xml">xml</a></li>
+			</ul>
+		</li>
+		<li>
+			<a class='main-menu-title' href="${contextPath}/job/detailChart.do?job=빅데이터AI">빅데이터·AI(인공지능)</a>
+			<ul id="sub-menu">
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=데이터분석">데이터분석</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=인공지능">인공지능</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=빅데이터">빅데이터</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=파이썬">파이썬</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=빅데이터AI&jobDetail=머신러닝">머신러닝</a></li>
+			</ul>
+		</li>
+		<li>
+			<a class='main-menu-title' href="${contextPath}/job/detailChart.do?job=ERP·시스템분석·설계">ERP·시스템분석·설계</a>
+			<ul id="sub-menu">
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=ERP·시스템분석·설계&jobDetail=projectManager">PM</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=ERP·시스템분석·설계&jobDetail=컨설팅">컨설팅</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=ERP·시스템분석·설계&jobDetail=분석,설계">분석,설계</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=ERP·시스템분석·설계&jobDetail=시스템엔지니어">시스템엔지니어</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=ERP·시스템분석·설계&jobDetail=데이터분석">데이터분석</a></li>
+			</ul>
+		</li>
+		<li>
+			<a class='main-menu-title' href="${contextPath}/job/detailChart.do?job=데이터베이스·DBA">데이터베이스·DBA</a>
+			<ul id="sub-menu">
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=데이터베이스·DBA&jobDetail=SQL">SQL</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=데이터베이스·DBA&jobDetail=DBA">DBA</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=데이터베이스·DBA&jobDetail=MS-SQL">MS-SQL</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=데이터베이스·DBA&jobDetail=Oracle DB">Oracle DB</a></li>
+				<li class='sub-list'><a href="${contextPath}/job/detailChart.do?job=데이터베이스·DBA&jobDetail=MySQL">MySQL</a></li>
+			</ul>
+		</li>
+	</ul>
+	<img class='chartImg' src='${contextPath}/resources/image/시각화자료/${chartVO.job}_${chartVO.jobDetail}.png'
+	style='margin-top:50px;'>
+</div>
 </body>
 </html>

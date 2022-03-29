@@ -1,0 +1,77 @@
+@charset "UTF-8";
+:root{
+	/*color*/
+	--color-white: #ffffff;
+	--color-skyblue:#64DBFF;
+	--color-lightblue:#51B1FE;
+	--color-blue:#2568EC;
+	--color-navy:#130E68;
+	--color-black:#000000;
+	/*fontsize*/
+	--fontsize-large:25px;
+	--fontsize-medium:20px;
+	--fontsize-regular:18px;
+	--fontsize-small:15px;
+	--fontsize-micro:12px;
+}
+.contain{
+	margin:auto;
+	text-align:center;
+}
+#main-menu,
+#sub-menu{
+	list-style-type:none;
+	padding:0;
+}
+#main-menu{
+	margin-top:100px;
+	font-size:var(--fontsize-medium);
+	width:1200px;
+/* 	text-align:center; */
+	margin:auto;
+	margin-top:100px;
+	
+}
+.main-menu-title{
+	width:230px;
+	border-bottom:2px solid var(--color-navy);
+	text-align:center;
+}
+#sub-menu{
+	font-size:var(--fontsize-regular);
+	background-color:var(--color-white);
+	width:230px;
+	color:var(--color-black);
+	border:2px solid var(--color-navy);
+}
+.sub-list{
+	height:100%;
+	padding:20px;
+}
+#main-menu > li{
+	float:left;
+	margin:auto;
+}
+#main-menu > li >a{
+	display:block;
+	padding:8px 0;
+/* 	text-align:center; */
+}
+#sub-menu{
+	position:absolute;
+	opacity: 0;
+	visibility: hidden;
+}
+#main-menu li:hover {
+	background-color:var(--color-lightblue);
+}
+#main-menu:hover li #sub-menu{
+	opacity:1;
+	visibility:visible;
+}
+#main-menu:hover li #sub-menu li{
+	opacity:1;
+}
+#main-menu li:hover #sub-menu li{
+	opacity:1;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.education">
+	<select id="selectEduList" resultType="EduVO" parameterType="int">
+		<![CDATA[
+		select eno, title, academy_name, edu_period, edu_app_period,edu_location
+		from (
+		        select row_number() over (order by eno desc) num,educations.*
+		        from educations
+		        where edu_deleteYN ='N'
+		        order by eno desc)
+		where  edu_deleteYN = 'N' and num between #{startPage} and #{size}
+		]]>
+	</select>
+	<select id="selectEduCount" resultType="int">
+		<![CDATA[
+		select count(*)
+		from educations
+		where edu_deleteYN = 'N'
+		]]>
+	</select>
+</mapper>

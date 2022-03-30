@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.eduTable{
+	margin:auto;
+	margin-top:100px;
+	width:1800px;
+	text-align:center;
+}
+
+.eduTable_title{
+	font-size:var(--fontsize-large);
+	height:60px;
+}
+.eduTable_title_td{
+	border-bottom:2px solid var(--color-navy);
+}
+.eduTable_content{
+	font-size:var(--fonsize-regular);
+	height:90px;
+}
+.title{
+	font-size:var(--fontsize-medium);
+	font-weight:bold;
+	text-align:left;
+}
+.titleLink:hover{
+	text-decoration:underline;
+}
+.page_number_contain{
+	text-align:center;
+	font-size:var(--fontsize-large);
+	margin:30px 0 80px 0;
+}
+.page_number{
+	border:2px solid var(--color-navy);
+	padding:15px 28px;
+	border-radius:4px;
+	color:var(--color-navy);
+	opacity:0.6;
+}
+.page_number:hover{
+	color:var(--color-blue);
+	opacity:1;
+}

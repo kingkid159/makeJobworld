@@ -4,8 +4,16 @@
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
-	
-	<definition name="/job/eduList" extends="linkLayout">
+<!-- 	학원 상세페이지 -->
+	<definition name="/job/eduDetail" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/education/eduDetail.jsp"/>
+	</definition>
+<!-- 	학원 목록페이지 -->
+	<definition name="/job/eduList" extends="baselayout">
 		<put-attribute name="body" value="/WEB-INF/views/education/eduList.jsp" />
+	</definition>
+	<!-- 등록페이지 -->	
+	<definition name="/job/eduRegister" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/education/eduRegister.jsp"/>
 	</definition>
 </tiles-definitions>   

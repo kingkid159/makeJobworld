@@ -2,9 +2,11 @@ package com.job.jobPro.edu.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
 import com.job.jobPro.edu.service.EduPage;
@@ -30,5 +32,29 @@ public class EduDAOImpl implements EduDAO {
 		List<EduVO>result = (ArrayList)sqlSession.selectList("selectEduList",eduPage);
 		return result;
 	}
-
+	
+	//상세페이지
+	@Override
+	public EduVO selectEduDetail(int eno) {
+		System.out.println("eno="+eno);
+		EduVO result=(EduVO)sqlSession.selectOne("mapper.education.selectEduDetail", eno);
+		return result;
+	}
+	//수정
+	@Override
+	public void eduModify(Map newEduMap) {
+		sqlSession.update("eduModify",newEduMap);
+	}
+	//삭제
+	@Override
+	public void eduDelete(int eno) {
+		sqlSession.update("eduDelete",eno);
+	}
+	
+	//등록
+	   @Override
+	   public void insertEdu(Map newEduMap) throws DataAccessException {
+	      sqlSession.insert("mapper.education.insertEduRegister",newEduMap);
+	      
+	   }
 }

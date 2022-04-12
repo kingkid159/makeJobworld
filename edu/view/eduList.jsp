@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel='stylesheet' href='${contextPath}/resources/css/eduList.css?ver=3'>
+<link rel="stylesheet" href="${contextPath}/resources/css/eduList.css">
 </head>
 <body>
 	<div class="contain">
@@ -44,6 +44,9 @@
 			<c:if test="${eduPage.endPage <eduPage.totalPage}">
 				<a class="page_number" href="eduList.do?pageNO=${eduPage.startPage + 5 }">></a>
 			</c:if>
+		   <c:if test="${memberVO.grade eq '기업' or memberVO.grade eq 'admin'}">
+		      <a class="page_number" href="${contextPath}/job/eduRegisterForm.do">등록하기</a>
+		   </c:if>
 		</div>
 	</div>
 </body>

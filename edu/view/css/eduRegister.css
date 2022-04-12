@@ -1,0 +1,92 @@
+:root{
+   /*color*/
+   --color-white: #ffffff;
+   --color-skyblue:#64DBFF;
+   --color-lightblue:#51B1FE;
+   --color-blue:#2568EC;
+   --color-navy:#130E68;
+   --color-black:#000000;
+   /*fontsize*/
+   --fontsize-large:25px;
+   --fontsize-medium:20px;
+   --fontsize-regular:18px;
+   --fontsize-small:15px;
+   --fontsize-micro:12px;
+}
+.registerbox{
+	margin-bottom:80px;
+}
+.title{
+	text-align:center;
+}
+.info{
+ line-height:55px;
+}
+.academylogo{
+ text-align:center;
+ padding-left:105px;
+}
+.academyname{
+ text-align:center;
+}
+.academyadd{
+ text-align:center;
+}
+.educationinfo{
+ text-align:center;
+}
+.academy_phone{
+	padding-right:30px;
+}
+.btn{
+ text-align:center;
+}
+.edu_type{
+	padding-right:200px;
+}
+.textinput{
+	width:500px;
+	height:32px;
+	font-size:15px;
+	border:0;
+	border-radius:15px; /*테두리 굴곡*/
+	outline: none;
+	padding-left:10px;
+	background-color:rgb(233,233,233);
+}
+input[type=url]{
+	width:500px;
+	height:32px;
+	font-size:15px;
+	border:0;
+	border-radius:15px; /*테두리 굴곡*/
+	outline: none;
+	background-color:rgb(233,233,233);
+}
+.submitbutton{
+	width:150px;
+	height:55px;
+	font-size:15px;
+	border:0;
+	border-radius:15px; /*테두리 굴곡*/
+	outline: none;
+	background-color:var(--color-lightblue);
+	text-align:center;
+}
+.backbutton{
+	width:150px;
+	height:55px;
+	font-size:15px;
+	border:0;
+	border-radius:15px; /*테두리 굴곡*/
+	outline: none;
+	background-color:var(--color-skyblue);
+}
+input[type=radio]{
+	width:80px;
+	heigth:40px;
+	border:0;
+	outline:none;
+	line-width:50px;
+	
+}

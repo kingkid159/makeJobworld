@@ -1,0 +1,141 @@
+:root{
+   /*color*/
+   --color-white: #ffffff;
+   --color-skyblue:#64DBFF;
+   --color-lightblue:#51B1FE;
+   --color-blue:#2568EC;
+   --color-navy:#130E68;
+   --color-black:#000000;
+   /*fontsize*/
+   --fontsize-large:25px;
+   --fontsize-medium:20px;
+   --fontsize-regular:18px;
+   --fontsize-small:15px;
+   --fontsize-micro:12px;
+}
+.info{
+	border:3px solid var(--color-navy);
+	height: 900px;
+	width:1500px;
+	margin:0 auto;
+	margin-top:50px;
+}
+.detailbox{
+	margin-top:40px;
+}
+.title{
+	text-align:center;
+	font-size:var(--fontsize-large);
+	font-weight:bold;
+}
+.educationinfo{
+	line-height:35px;
+	float:left;
+	margin-right: 50px;
+	margin-top:50px;
+	width:450px;
+	display:grid;
+	font-size:var(--fontsize-regular);
+	grid-template-columns:100px 500px;
+}
+
+.titleV{
+	font-weight:bold;
+	text-align:center;
+	width:1200px;
+	height:50px;
+	font-size:var(--fontsize-large);
+}
+.category{
+	font-weight:bold;
+	margin:10px;
+	
+}
+.content{
+	margin:10px;
+}
+.contentV{
+	font-size:var(--fontsize-regular);
+	width:550px;
+	height:30px;
+}
+.academyinfo{
+	height:300px;
+	margin-bottom:150px;
+	margin-top:150px;
+	margin-right:200px;
+	padding-left:300px;
+	float:left;
+	font-size:var(--fontsize-regular);
+	width:200px;
+}
+.academyname{
+	margin-right:20px;
+	margin-left:50px;
+	margin-top:20px;
+	font-size:var(--fontsize-micro);
+}
+.academyadd{
+	margin-top:40px;
+	display:flex;
+	width:240px;
+}
+.academyaddM{
+	margin-top:40px;
+	text-align:center;
+}
+.category{
+	width:280px;
+}
+#backbtn{
+	color:var(--color-white);
+	background-color:var(--color-navy);
+	border:1px solid var(--color-navy);
+	border-radius:4px;
+	padding:15px 35px;
+	font-size:var(--fontsize-regular);
+	font-weight:bold;
+	margin:30px;
+}
+.buttonContain{
+	width:200px;
+	margin-top:30px;
+}
+.btnModify{
+	color:var(--color-white);
+	background-color:var(--color-navy);
+	border: 1px solid var(--color-navy);
+	border-radius:4px;
+	padding:10px 20px;
+	cursor:pointer;
+	font-size:var(--fontsize-regular);
+	font-weight:bold;
+}
+.btnDelete{
+	color:var(--color-white);
+	background-color:red;
+	border:1px solid red;
+	padding:10px 20px;
+	border-radius:4px;
+	font-size:var(--fontsize-regular);
+	font-weight:bold;
+}
+.academynameM{
+	text-align:center;
+}
+.infoM{
+	border:3px solid var(--color-navy);
+	height: 800px;
+	width:1500px;
+	margin:0 auto;
+	margin-top:50px;
+}
+.form{
+	display:none;
+}
+.visible{
+	display:block;
+}
+.invisible{
+	display:none;
+}

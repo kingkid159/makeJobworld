@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--참고 https://mybatis.org/mybatis-3/ko/configuration.html 
+       타입 별칭은 자바 타입에 대한 짧은 이름이다. 
+       오직 XML 설정에서만 사용되며, 타이핑을 줄이기 위해 존재한다.  -->
+<configuration>
+	<typeAliases>
+		<!-- 문법 <typeAlias type="패키지명.클래스명" alias="별칭"/>
+		<typeAlias type="com.mycom.member.MemberVO" alias="memberVO"/> -->
+		<typeAlias type="java.lang.String" alias="string"/>
+		<typeAlias type="com.job.jobPro.search.model.Search" alias="search"/>
+		<typeAlias type="com.job.jobPro.board.vo.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.job.jobPro.resume.vo.ResumeVO" alias="ResumeVO"/>
+		<typeAlias type="com.job.jobPro.letter.vo.LetterVO" alias="LetterVO"/>
+		<typeAlias type="com.job.jobPro.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="com.job.jobPro.board.vo.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.job.jobPro.letter.vo.MyLetterVO" alias="MyLetterVO"/>
+		<typeAlias type="com.job.jobPro.main.model.Cmain" alias="cmain"/>
+		<typeAlias type="com.job.jobPro.main.model.CList" alias="cList"/>
+		<typeAlias type="com.job.jobPro.chart.vo.ChartVO" alias="chartVO"/>
+		<typeAlias type="com.job.jobPro.edu.vo.EduVO" alias="EduVO"/>
+		<typeAlias type="com.job.jobPro.admin.main.vo.CompanyVO" alias="CompanyVO"/>
+	</typeAliases>
+</configuration>

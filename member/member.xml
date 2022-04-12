@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.member">
+	
+	<!-- id중복확인
+	   DECODE(VALUE, IF1, THEN1, IF2, THEN2...) 형태로 사용 할 수 있다.
+	   VALUE 값이 IF1일 경우에 THEN1 값을 반환하고, VALUE 값이 IF2일 경우에는 THEN2 값을 반환한다.
+	   DECODE 함수 안에 DECODE함수를 중첩으로 사용 할 수 있다.
+	   member_id컬럼의 값이  user가 입력한 id와 일치하면 'true', 그렇지않으면 'false'  -->
+	 <select id="selectOverlappedId" resultType="string" parameterType="string">
+	 <![CDATA[
+	 	SELECT decode(count(id), 1, 'true', 0, 'false')
+		FROM MEMBER
+		WHERE id=#{id}
+	 ]]>
+	 </select> 
+	
+
+	<!-- xml주석문
+		;미포함, 쿼리문법준수(공백,작은따옴표등)
+		select문이면 <select id="유니크한id명">
+		insert문이면 <insert>
+		delete문이면 <delete>"src/mybatis/mappers/member.xml"
+		update문이면 <update>
+		 -->
+		<insert id="insertMember" parameterType="MemberVO">
+      
+   <![CDATA[
+      insert into MEMBER(ID,PASSWORD,NAME,GENDER,EMAIL,PHONE,ADDRESS,BIRTH,REGDATE,U_DELETE,DELDATE,ADMINOK,djob,grade) 
+      values(#{id},#{password},#{name},#{gender},#{email},#{phone},#{address},#{birth},SYSDATE,'N',SYSDATE,'N',#{djob},#{grade})
+   ]]>
+   </insert>
+	
+	<select id="login" resultType="MemberVO" parameterType="java.util.Map">
+	<![CDATA[
+		SELECT *
+		FROM MEMBER
+		WHERE ID=#{ID} and PASSWORD=#{PASSWORD}
+	 ]]>
+	</select>
+		
+	<select id="myPageMain" resultType="MemberVO" parameterType="java.util.Map">
+	<![CDATA[
+		SELECT *
+		FROM MEMBER
+		WHERE ID=#{ID}
+	 ]]>
+	</select>
+	
+	
+	
+	<!-- 회원탈퇴 -->
+	<delete id="memberDelete" parameterType="memberVO">
+	<![CDATA[
+	DELETE FROM MEMBER
+	WHERE ID = #{id}
+	AND PASSWORD = #{password}
+	  ]]> 
+	</delete>
+
+
+
+	<!-- 아이디 찾기 -->
+	<select id="find_id" parameterType="string" resultType="string">
+		select id from member where email = #{email}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="find_pw" parameterType="string" resultType="string">
+		select password from member where id = #{id}
+	</select>
+
+	<!--  비밀번호 재설정 -->
+	   <update id="modify" parameterType="memberVO">
+   		update member
+   		set password = #{password}
+   		where id = #{id}
+   </update>	
+</mapper>
+
+

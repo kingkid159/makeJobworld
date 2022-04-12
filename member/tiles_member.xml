@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	
+
+	<definition name="/member/homes" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/homes.jsp"/>
+	</definition>
+ 	
+	<definition name="/member/login" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/login.jsp"/>
+	</definition>
+	<definition name="/member/member" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/member.jsp"/>
+	</definition>
+	
+	<definition name="/member/main2" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/main2.jsp"/>
+	</definition>
+	
+	<definition name="/member/homes2" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/homes2.jsp"/>
+	</definition>
+	
+	
+	<definition name="/member/delete" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/delete.jsp"/>
+	</definition>
+	
+		<definition name="/member/find_id_form" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/find_id_form.jsp"/>
+	</definition>
+	
+	<definition name="/member/find_id" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/find_id.jsp"/>
+	</definition>
+	
+	<definition name="/member/find_pw_form" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/find_pw_form.jsp"/>
+	</definition>
+	
+	<definition name="/member/find_pw" extends="baselayout">
+	<put-attribute name="body" value="/WEB-INF/views/member/find_pw.jsp"/>
+	</definition>
+	
+	<definition name="/member/delete2" extends="baselayout">
+	<put-attribute name="body" value="/WEB-INF/views/member/delete2.jsp"/>
+	</definition>
+	
+	<definition name="/member/admin/memberDetail" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/member/admin/memberDetail.jsp"/>
+	</definition>
+</tiles-definitions>
+
+
+
+
+      

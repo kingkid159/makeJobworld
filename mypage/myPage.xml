@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.myPage">
+	<resultMap id="result" type="java.util.HashMap" >
+	    <result property="mlno" column="MLNO"/>
+	    <result property="lno" column="LNO"/>
+	    <result property="lTitle" column="LTITLE"/>
+	    <result property="qes1" column="QES1"/>
+	    <result property="res1" column="RES1" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes2" column="QES2"/>
+	    <result property="res2" column="RES2" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes3" column="QES3"/>
+	    <result property="res3" column="RES3" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes4" column="QES4"/>
+	    <result property="res4" column="RES4" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes5" column="QES5"/>
+	    <result property="res5" column="RES5" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes6" column="QES6"/>
+	    <result property="res6" column="RES6" jdbcType="CLOB" javaType="java.lang.String" />
+	</resultMap>
+	
+	<select id="selectMyLetter" parameterType="string" resultMap="result" >
+		<![CDATA[
+			SELECT MLNO,LNO,LTITLE,QES1,RES1,QES2,RES2,QES3,RES3,QES4,RES4,QES5,RES5,QES6,RES6,IMAGEFILE
+				FROM (
+	            SELECT ROW_NUMBER() OVER(ORDER BY MLNO DESC) NUM , A.*
+	            FROM MYLETTER A
+	       		 )
+			WHERE USERID = #{userid} AND NUM BETWEEN 1 AND 5 order by MLNO DESC
+		]]>
+	</select>
+	
+	<select id="selectNoMyLetter" parameterType="int"
+	resultType="MyLetterVO">
+	<![CDATA[
+		SELECT MLNO,LNO,LTITLE,IMAGEFILE,QES1,RES1,QES2,RES2,QES3,RES3,QES4,RES4,QES5,RES5,QES6,RES6
+		FROM MYLETTER
+        WHERE MLNO = #{no}
+	]]>
+	</select>
+	
+	
+	<update id="memberUpdate" parameterType="memberVO">
+			<![CDATA[
+			UPDATE MEMBER SET		
+			PASSWORD=#{password},
+			PHONE=#{phone},
+			ADDRESS=#{address},
+			djob=#{djob}
+			WHERE ID=#{id}
+			
+		 ]]>
+	</update>	
+	
+	<update id="updateMyLetter" parameterType="MyLetterVO">
+		<![CDATA[
+		UPDATE MYLETTER SET
+		RES1=#{res1,jdbcType=CLOB},RES2=#{res2,jdbcType=CLOB},RES3=#{res3,jdbcType=CLOB},
+		RES4=#{res4,jdbcType=CLOB},RES5=#{res5,jdbcType=CLOB},RES6=#{res6,jdbcType=CLOB}
+		WHERE MLNO = #{mlno}
+		]]>
+	</update>
+	
+	<delete id="deleteMyLetter" parameterType="int">
+		DELETE FROM MYLETTER
+		WHERE MLNO = #{letterNum}
+	</delete>
+	
+	
+</mapper>

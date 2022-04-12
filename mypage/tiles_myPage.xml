@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="/mypage/mypage" extends="logonlayout">
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp"/>
+	</definition>
+	
+	<definition name="/mypage/myLetterDetail" extends="logonlayout">
+		<put-attribute name="body" value="/WEB-INF/views/mypage/myLetterDetail.jsp"/>
+	</definition>
+	
+	<definition name="/mypage/myLetterEdit" extends="logonlayout">
+		<put-attribute name="body" value="/WEB-INF/views/mypage/myLetterEdit.jsp"/>
+	</definition>
+	
+	<definition name="/mypage/myLetterUpdate" extends="logonlayout">
+		<put-attribute name="body" value="/WEB-INF/views/mypage/myLetterDetail.jsp"/>
+	</definition>
+	
+	<definition name="/mypage/myLetterDelete" extends="logonlayout">
+		<put-attribute name="body" value="/WEB-INF/views/mypage/mypage.jsp"/>
+	</definition>
+</tiles-definitions>

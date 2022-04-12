@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.search">
+	<select id="selectSearchCount" resultType="int" parameterType="java.lang.String">
+	<![CDATA[
+		select count(info)
+		from (select c_eno||c_name||c_postname||c_career||c_condition||c_day as info
+     			from clist) comlist
+		where comlist.info like '%'||#{search}||'%'
+	]]>
+	</select>
+	<select id="selectSearch" resultType="search">
+		<![CDATA[
+		select *
+		from(select
+		substr(info, 1, instr(info,'|',1,1)-1) c_eno,
+    	ROW_NUMBER() OVER(order by to_number(substr(info, 1, instr(info,'|',1,1)-1)) desc) as c_no,
+    	substr(info, instr(info,'|',1,1)+1, instr(info,'|',1,2)-instr(info,'|',1,1)-1) c_name,
+    	substr(info, instr(info,'|',1,2)+1, instr(info,'|',1,3)-instr(info,'|',1,2)-1) c_postname,
+    	substr(info, instr(info,'|',1,3)+1, instr(info,'|',1,4)-instr(info,'|',1,3)-1) c_career,
+    	substr(info, instr(info,'|',1,4)+1, instr(info,'|',1,5)-instr(info,'|',1,4)-1) c_condition,
+    	substr(info, instr(info,'|',1,5)+1, instr(info,'|',1,6)-instr(info,'|',1,5)-1) c_day,
+        substr(info, instr(info,'|',1,6)+1, instr(info,'|',1,7)-instr(info,'|',1,6)-1) c_link
+    	from (select c_eno||'|'||c_name||'|'||c_postname||'|'||c_career||'|'||c_condition||'|'||c_day||'|'||c_link||'|' as info
+        		from clist) comlist
+		where comlist.info like '%'||#{search}||'%'
+		order by c_no asc)
+		where c_no>#{pageNo} and c_no<=#{size}
+		]]>
+	</select>
+</mapper>
+
+
+
+

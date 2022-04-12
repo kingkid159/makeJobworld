@@ -11,7 +11,8 @@ import com.job.jobPro.chart.vo.ChartVO;
 public class ChartServiceImpl implements ChartService{
 	@Autowired
 	private ChartDAO chartDAO;
-	
+
+	/* 메인차트그래프 */
 	@Override
 	public ChartVO selectMainChart(String job, String jobDetail, String graphType) {
 		// TODO Auto-generated method stub
@@ -19,6 +20,8 @@ public class ChartServiceImpl implements ChartService{
 		ChartVO chartVO = chartDAO.selectMainChart(job,jobDetail,graphType);
 		return chartVO;
 	}
+
+	/* 직종별채용공고 */
 	@Override
 	//상세그래프
 	public ChartVO selectChart(String job) {
@@ -28,6 +31,8 @@ public class ChartServiceImpl implements ChartService{
 		System.out.println("serviceChartVO"+chartVO);
 		return chartVO;
 	}
+
+	/* 직종별 상세그래프 */
 	@Override
 	public List<ChartVO> selectDetailChart(String job, String jobDetail) {
 		// TODO Auto-generated method stub

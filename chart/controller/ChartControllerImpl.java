@@ -18,6 +18,7 @@ public class ChartControllerImpl implements ChartController{
 	@Autowired
 	private ChartService chartService;
 	
+	/*메인 차트 화면*/
 	@Override
 	@RequestMapping(value="/job/mainChart.do")
 	public ModelAndView mainChart(HttpServletRequest request, HttpServletResponse response) {
@@ -30,14 +31,14 @@ public class ChartControllerImpl implements ChartController{
 		mav.addObject("chartVO",chartVO);
 		return mav;
 	}
-
+	/*디테일 차트 화면*/
 	@Override
 	@RequestMapping(value="/job/detailChart.do")
 	public ModelAndView detailChart(HttpServletRequest request, HttpServletResponse response) {
-		// TODO Auto-generated method stub
 		String job = request.getParameter("job");
 		String jobDetail = request.getParameter("jobDetail"); 
 		String graphType = request.getParameter("graphType");
+		/*직종별 채용공고 차트가 보여질 화면*/
 		if (job !=null && jobDetail == null) {
 			ChartVO chartVO = chartService.selectChart(job);
 			System.out.println("controllerchartVO="+chartVO);
@@ -45,13 +46,13 @@ public class ChartControllerImpl implements ChartController{
 			mav.setViewName("/job/chart");
 			mav.addObject("chartVO",chartVO);
 			return mav;
+		/*직종파라미터값은 받고 graphType파라미터는 안받는 경우 직종별 상세 차트가 나온다*/
 		}else if (jobDetail != null && graphType == null) {
 			List<ChartVO> chartVO = chartService.selectDetailChart(job,jobDetail);
 			System.out.println("Controller charVO="+chartVO);
 			ModelAndView mav = new ModelAndView();
 			mav.setViewName("/job/chartGraphType");
 			mav.addObject("chartVO",chartVO);
-			/* graphType = "전체"; */
 			return mav;
 		}
 		return null;

@@ -12,10 +12,10 @@ import com.job.jobPro.chart.vo.ChartVO;
 public class ChartDAOImpl implements ChartDAO {
 	@Autowired
 	private SqlSession sqlSession;
-	
+
+	/* 메인차트DAO */
 	@Override
 	public ChartVO selectMainChart(String job, String jobDetail, String graphType) {
-		// TODO Auto-generated method stub
 		ChartVO chartVO = new ChartVO(job,jobDetail,graphType);
 		System.out.println("DAOselectMainChart"+chartVO);
 		ChartVO result = 
@@ -23,9 +23,10 @@ public class ChartDAOImpl implements ChartDAO {
 		System.out.println("result"+result);
 		return result;
 	}
+
+	/* 직종별 상세 차트DAO */
 	@Override
 	public List<ChartVO> selectDetailChart(String job, String jobDetail) {
-		// TODO Auto-generated method stub
 		System.out.println("DAOselectDetailjob"+job);
 		System.out.println("DAOselectDetailjobDetail"+jobDetail);
 		ChartVO chartVO = new ChartVO(job,jobDetail);
@@ -35,9 +36,10 @@ public class ChartDAOImpl implements ChartDAO {
 		System.out.println("result="+result);
 		return result;
 	}
+	
+	/* 직종별 채용공고차트 */
 	@Override
 	public ChartVO selectChart(String job) {
-		// TODO Auto-generated method stub
 		System.out.println("DAOselectjob="+job);
 		ChartVO result = 
 				(ChartVO)sqlSession.selectOne("mapper.chart.selectChart",job);

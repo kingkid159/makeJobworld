@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/chartHeader.css?ver=1">
-<link rel="stylesheet" href="${contextPath}/resources/css/chart.css?ver=1">
+<link rel="stylesheet" href="${contextPath}/resources/css/chart.css?ver=2">
 </head>
 <body>
 	<ul id="main-menu">
@@ -67,10 +67,13 @@
 	<br><br><br>
 	<div class="contain-bottom">
 		<div class="buttonContain">
-		<c:forEach var="chartVO" items="${chartVO}">
-			<%-- <c:if test='${chartVO.graphType eq "평균연봉"}'> --%>
-			<button class="graphTypeBTN" data-filter='${chartVO.graphType}'>${chartVO.graphType}</button>
-			<%-- </c:if> --%>
+		<c:forEach var="chartVO" items="${chartVO}" varStatus="status">
+			<c:if test='${status.index eq 0}'>
+				<button class="graphTypeBTN active" data-filter='${chartVO.graphType}'>${chartVO.graphType}</button>
+			</c:if>
+			<c:if test='${status.index ne 0}'>
+				<button class="graphTypeBTN" data-filter='${chartVO.graphType}'>${chartVO.graphType}</button>
+			</c:if>
 		</c:forEach>
 		</div>
 		<div class="imgContain">
@@ -104,6 +107,12 @@
 			imgContainer.classList.remove('ani-out');
 		},300)
 		
+	});
+</script>
+<script>
+$('button').click(function(){
+	  $('button').removeClass("active");
+	  $(this).addClass("active");
 	});
 </script>
 </body>

@@ -1,0 +1,56 @@
+:root{
+	--color-white: #ffffff;
+    --color-skyblue:#64DBFF;
+    --color-lightblue:#51B1FE;
+    --color-blue:#2568EC;
+    --color-navy:#130E68;
+    --color-black:#000000;
+    
+    --fontsize-large:25px;
+    --fontsize-medium:20px;
+    --fontsize-regular:18px;
+    --fontsize-small:15px;
+    --fontsize-micro:12px;
+}
+
+
+body { 
+	margin:0; padding:0;
+}
+#boardTitle {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#boardReadForm {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:30px; line-height: 55px;
+}
+#boardReadForm #read_titleContainer{
+	border-bottom: 1px solid var(--color-lightblue);
+}
+#boardReadForm #read_title {
+	border:none; font-weight:bold;
+	width: 1150px; height: 50px;
+	font-size:var(--fontsize-medium);
+}
+#boardReadForm #read_nameContainer {
+	border-bottom: 1px dashed var(--color-lightblue);
+}
+#boardReadForm #read_cpmtentContainer {
+	border-bottom: 1px solid var(--color-lightblue);
+	width: 1150px; height: 500px;
+}
+#boardReadForm #read_content {
+	border:none;width: 1000px;margin-top:50px; vertical-align: top;
+}
+#boardReadForm #read_btn input {
+	background-color:var(--color-navy);
+	color:var(--color-white);
+	cursor: pointer;
+	border:none;
+	width: 80px; height: 40px;
+}

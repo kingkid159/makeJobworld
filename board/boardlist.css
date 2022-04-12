@@ -1,0 +1,90 @@
+:root{
+	--color-white: #ffffff;
+    --color-skyblue:#64DBFF;
+    --color-lightblue:#51B1FE;
+    --color-blue:#2568EC;
+    --color-navy:#130E68;
+    --color-black:#000000;
+    
+    --fontsize-large:25px;
+    --fontsize-medium:20px;
+    --fontsize-regular:18px;
+    --fontsize-small:15px;
+    --fontsize-micro:12px;
+}
+
+
+body { 
+	margin:0; padding:0;
+}
+
+#board {
+	width: 1150px; margin: 0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#board_total {
+	width: 1150px;
+	margin: 0 auto;
+	text-align: right;
+	padding-right: 30px;
+	margin-top:30px;
+}
+#boardTable {
+	width: 1150px;
+	margin: 0 auto;
+	margin-top:15px;
+	text-align: center;
+}
+#boardTable .thead {
+	font-weight: bold; 
+	height: 50px; line-height: 50px;
+	border-top:1px solid var(--color-navy);
+	background-color:#64dbff15;
+
+}
+#boardTable tr{
+	display:grid; grid-template-columns: 100px 650px 300px 100px;
+}
+#boardTable tbody tr{
+	height: 40px;
+	border-bottom: 1px solid #64dbff50; 
+	padding-top:15px;
+	
+}
+#boardTable tbody tr td a{
+	color:var(--color-black);
+	text-decoration: none;
+}
+#boardTable tbody tr td a:hover{
+	text-decoration: underline;
+}
+#btnWrite {
+	width: 1150px;
+	text-align: right;
+	margin: 0 auto;
+	margin-top:15px;
+}
+#btnWrite button{
+	width: 100px; height: 25px;
+	border:none; background-color:var(--color-navy);
+	color:var(--color-white);
+	cursor: pointer;
+}
+#paging {
+	width: 1150px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top:15px;
+	height: 50px;
+}
+#paging a{
+	display:inline-block; 
+	width: 20px; height: 20px;
+	border:1px solid var(--color-black);
+	text-decoration: none;
+}
+#paging a:hover { 
+	background-color:var(--color-skyblue);
+}

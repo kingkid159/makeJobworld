@@ -1,0 +1,64 @@
+:root{
+	--color-white: #ffffff;
+    --color-skyblue:#64DBFF;
+    --color-lightblue:#51B1FE;
+    --color-blue:#2568EC;
+    --color-navy:#130E68;
+    --color-black:#000000;
+    
+    --fontsize-large:25px;
+    --fontsize-medium:20px;
+    --fontsize-regular:18px;
+    --fontsize-small:15px;
+    --fontsize-micro:12px;
+}
+
+
+body { 
+	margin:0; padding:0;
+}
+#boardTitle {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#boardWriteForm {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:30px; line-height: 55px;
+}
+#boardWriteForm #name_container {
+	border-bottom: 1px solid #00000025;
+}
+
+#boardWriteForm #writer_name {
+	margin-left: 30px;
+}
+
+#boardWriteForm #title_container {
+	border-bottom: 1px solid #00000025;
+}
+
+#boardWriteForm #write_title {
+	margin-left: 46px;
+	width: 1000px;
+}
+#boardWriteForm #write_content {
+	width: 1150px; height: 500px;
+	text-align: start;
+	white-space: normal;
+	resize: none;
+	margin-top:20px;
+}
+#boardWriteForm #content_container {
+	border-bottom: 1px solid #00000025;
+}
+#boardWriteForm #write_btn input {
+	background-color:var(--color-navy);
+	color:var(--color-white);
+	cursor: pointer;
+	border:none;
+	width: 80px; height: 40px;
+} 

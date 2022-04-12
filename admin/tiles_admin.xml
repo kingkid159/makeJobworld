@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="/admin/main" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/adminMain.jsp" />
+	</definition>
+
+	<definition name="/admin/resumeRegisterPage" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/resumeRegister.jsp" />
+	</definition>
+	
+	<definition name="/admin/resumeRegister" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/resumeRegisterS.jsp" />
+	</definition>
+	
+	<definition name="/admin/resumeDelete" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/resumeDeleteS.jsp" />
+	</definition>
+	
+	<definition name="/admin/resumeUpdatePage" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/resumeUpdate.jsp" />
+	</definition>
+	
+	
+	<definition name="/admin/letterRegisterPage" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/letterRegister.jsp" />
+	</definition>
+	
+	
+	<definition name="/admin/letterRegister" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/letterRegisterS.jsp" />
+	</definition>
+	
+	<definition name="/admin/letterUpdatePage" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/letterUpdate.jsp" />
+	</definition>
+	
+	<definition name="/admin/cList/add" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/cList/add.jsp" />
+	</definition>
+	
+	
+</tiles-definitions>

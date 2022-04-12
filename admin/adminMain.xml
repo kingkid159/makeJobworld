@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.adminMain">
+
+	<!-- 회원 리스트  -->
+	<select id="selectMemberDetail" resultType="memberVO">
+	<![CDATA[
+	select * from member
+	]]>
+	</select>
+	
+	<!-- 회원 리스트  -->
+	<select id="selectMemberTotal" resultType="int">
+	<![CDATA[
+		select count(*) from member
+	]]>
+	</select>
+	
+	<select id="selectCompanyTotal" resultType="int">
+	<![CDATA[
+		select count(*) from clist
+	]]>
+	</select>
+	
+	<select id="selectBoardTotal" resultType="int">
+	<![CDATA[
+		select count(*) from board
+	]]>
+	</select>
+	
+	<select id="selectLetterTotal" resultType="int">
+	<![CDATA[
+		select count(*) from letter
+	]]>
+	</select>
+	
+	<select id="selectResumeTotal" resultType="int">
+	<![CDATA[
+		select count(*) from resume
+	]]>
+	</select>
+	
+	<select id="selectEduTotal" resultType="int">
+	<![CDATA[
+		select count(*) from educations
+	]]>
+	</select>
+	
+	<select id="selectCompany" resultType="com.job.jobPro.admin.main.vo.CompanyVO">
+	<![CDATA[
+	select 
+	count(*) as total,
+	count(CASE WHEN c_jobno='17111' OR c_jobno='16187' OR c_jobno='16765'OR c_jobno='16766'OR c_jobno='14690' THEN 1 END) as web ,
+	count(CASE WHEN c_jobno='16883' OR c_jobno='14620' OR c_jobno='16617'OR c_jobno='16941'OR c_jobno='16942' THEN 1 END) as html ,
+	count(CASE WHEN c_jobno='16981' OR c_jobno='16980' OR c_jobno='16979'OR c_jobno='16982'OR c_jobno='16983'  THEN 1 END) as ai ,
+	count(CASE WHEN c_jobno='14860' OR c_jobno='13630' OR c_jobno='12000'OR c_jobno='16993'OR c_jobno='16903'  THEN 1 END) as system ,
+	count(CASE WHEN c_jobno='16935' OR c_jobno='16182' OR c_jobno='14940'OR c_jobno='14810'OR c_jobno='14780' THEN 1 END) as dataBase 
+	from clist 
+	]]>
+	</select>
+	
+	
+	<!-- 회원 삭제  -->
+	<delete id="deleteMember" parameterType="string">
+	<![CDATA[
+		delete from member
+		where id=#{id}
+	]]>
+	</delete>
+</mapper>

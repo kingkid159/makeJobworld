@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.admin">
+<!-- resume -->
+	<insert id="resumeRegister" parameterType="ResumeVO">
+	<selectKey keyProperty="r_no" resultType="int" order="BEFORE">
+			SELECT RES_SEQ.nextval from dual
+	</selectKey>
+	<![CDATA[		
+		INSERT INTO RESUME(r_no,r_type,r_name,r_ex,imagefile,filename)
+		VALUES(#{r_no},#{r_type},#{r_name},#{r_ex},#{imagefile},#{filename})
+		]]>
+	</insert>
+	
+	
+	<update id="resumeUpdate" parameterType="ResumeVO">
+		<![CDATA[
+		UPDATE RESUME SET r_type=#{r_type}, r_name=#{r_name}, r_ex=#{r_ex},
+		imagefile=#{imagefile},filename=#{filename}
+		WHERE R_NO =#{r_no}
+		]]>
+	</update>
+	
+	<delete id="resumeDelete" parameterType="int">
+		DELETE FROM RESUME 
+		WHERE R_NO = #{resumeNo}
+	</delete>
+<!-- letter	 -->
+
+	<insert id="letterRegister" parameterType="LetterVO">
+	<selectKey keyProperty="lno" resultType="int" order="BEFORE">
+			SELECT LET_SEQ.nextval from dual
+	</selectKey>
+		<![CDATA[
+		INSERT INTO LETTER(LNO,IMAGEFILE,lTitle,qes1,res1,qes2,res2,qes3,res3,qes4,res4,qes5,res5,qes6,res6)
+		VALUES(#{lno},#{imagefile},#{lTitle},#{qes1,jdbcType=CLOB},#{res1,jdbcType=CLOB},
+		#{qes2,jdbcType=CLOB},#{res2,jdbcType=CLOB},#{qes3,jdbcType=CLOB},#{res3,jdbcType=CLOB},
+		#{qes4,jdbcType=CLOB},#{res4,jdbcType=CLOB},#{qes5,jdbcType=CLOB},#{res5,jdbcType=CLOB},
+		#{qes6,jdbcType=CLOB},#{res6,jdbcType=CLOB}) 
+		]]>
+	</insert>
+	
+	<update id="letterUpdate" parameterType="LetterVO">
+		<![CDATA[
+		UPDATE LETTER SET LTITLE=#{lTitle},IMAGEFILE=#{imagefile},
+		QES1=#{qes1}, RES1=#{res1,jdbcType=CLOB},QES2=#{qes2}, RES2=#{res2,jdbcType=CLOB},
+		QES3=#{qes3}, RES3=#{res3,jdbcType=CLOB},QES4=#{qes4}, RES4=#{res4,jdbcType=CLOB},
+		QES5=#{qes5}, RES5=#{res5,jdbcType=CLOB},QES6=#{qes6}, RES6=#{res6,jdbcType=CLOB}
+		WHERE LNO=#{lno}
+		]]>
+	</update>
+	
+	<delete id="letterDelete" parameterType="int">
+		DELETE FROM LETTER 
+		WHERE LNO = #{letterNo}
+	</delete>
+	
+	<!-- 기업리스트 갯수 -->
+	<select id="count" resultType="int" >
+	<![CDATA[
+		select nvl(count(*),0)+1 from clist
+	]]>
+	</select>
+	
+<!-- 	기업리스트 입력 -->
+	<insert id="addClist" parameterType="search">
+		<![CDATA[
+		insert into clist(c_eno,c_name,c_postname,c_career,c_condition,c_day,c_link,c_jobno)
+		values(seq_cno2.nextval,#{c_name},#{c_postname},#{c_career},#{c_condition},#{c_day},#{c_link},#{c_jobno})
+		]]>
+	</insert>
+	<!--  seq_cno2.nextval-->
+<!-- 	기업리스트 삭제 -->
+	<delete id="deleteClist" parameterType="int">
+	<![CDATA[
+		delete from clist
+		where c_eno=#{c_eno}
+	]]>
+	</delete>
+
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="/resume/resumeList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/resume/resumeList.jsp" />
+	</definition>
+	
+	<definition name="/resume/resumeDetail" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/resume/resumeDetail.jsp" />
+	</definition>
+	
+</tiles-definitions>   

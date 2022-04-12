@@ -1,0 +1,76 @@
+:root{
+	--color-white: #ffffff;
+    --color-skyblue:#64DBFF;
+    --color-lightblue:#51B1FE;
+    --color-blue:#2568EC;
+    --color-navy:#130E68;
+    --color-black:#000000;
+    
+    --fontsize-large:25px;
+    --fontsize-medium:20px;
+    --fontsize-regular:18px;
+    --fontsize-small:15px;
+    --fontsize-micro:12px;
+}
+
+
+body { 
+	margin:0; padding:0;
+}
+.resumeTitle {
+	width: 1150px; margin: 0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#resumeDetail_table {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:30px;
+	margin-bottom: 30px; 
+	padding-bottom:30px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#resumeDetail_table .resumeDetail_title {
+	border-bottom: 1px dashed var(--color-navy);
+}
+#resumeDetail_table .resumeDetail_ex {
+	margin:10px 0px;
+}
+#resumeDetail_table .resumeDetail_type {
+	color:gray;
+}
+#resumeDetail_table .resumeDetail_down {
+	text-align: center; 
+}
+#resumeDetail_table .resumeDetail_down button {
+	border:3px solid var(--color-navy);
+	border-radius:8px;
+	background-color:var(--color-white);
+	color:var(--color-navy);
+	width: 200px;
+	height: 70px;
+	cursor: pointer;
+}
+#resumeDetail_table .resumeDetail_img {
+	text-align: center; 
+	
+}
+#resumeDetail_table .resumeDetail_img img{ 
+	width: 600px;
+}
+#footer_menu {
+	width: 1150px;
+	height : 100px;
+	text-align: center;
+	margin:0 auto;
+	
+}
+#footer_menu a{
+	display:inline-block;
+	color:var(--color-black);
+	display:inline-block;
+	text-decoration:none;
+	border:1px solid var(--color-black);
+	padding:5px;
+}

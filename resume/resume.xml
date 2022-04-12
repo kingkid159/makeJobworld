@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.resume">
+	<select id="selectResumeList" 
+			resultType="ResumeVO">
+		<![CDATA[
+			SELECT r_no,r_type,r_name,r_ex, 
+			replace(LOWER(NVL(substr(r_name,2,instr(r_name,']') -2 ),'hwp')),'excel','xlsx') 
+			as image_form,filename,imagefile
+			FROM RESUME order by r_no
+		]]>
+	</select>
+	
+	<select id="selectPageNum" resultType="int">
+		select count(*) from resume
+	</select>
+	<!-- 한 페이지에 보여줄 이력서 숫자  -->
+	<select id="selectResumeNo" parameterType="java.util.Map"
+	resultType="ResumeVO">
+		<![CDATA[
+		SELECT r_no,r_type,r_name,r_ex,replace(LOWER(NVL(substr(r_name,2,instr(r_name,']') -2 ),'hwp')),
+		'excel','xlsx') as image_form,filename,imagefile
+		FROM (
+            SELECT ROW_NUMBER() OVER(ORDER BY R_NO DESC) NUM , A.*
+            FROM RESUME A
+        )
+        WHERE NUM>#{startRow} AND NUM<=#{size}
+		]]>
+	</select>
+	
+	<!-- 선택한 이력서 내용 -->
+	<select id="selectNoResume" parameterType="int"
+	resultType="ResumeVO">
+	<![CDATA[
+		SELECT r_no,r_type,r_name,r_ex,filename,imagefile,replace(LOWER(NVL(substr(r_name,2,instr(r_name,']') -2 ),'hwp')),
+		'excel','xlsx') as image_form
+		FROM RESUME
+        WHERE r_no = #{no}
+	]]>
+	</select>
+	
+	<!-- 이력서 입력 -->
+	<insert id="insertResume" parameterType="ResumeVO">
+		INSERT INTO RESUME(r_no,r_type,r_name,r_ex)
+		VALUES(res_seq.NEXTVAL,#{r_type},#{r_name},#{r_ex})
+	</insert>
+	
+	<update id="updateMember" parameterType="ResumeVO">
+	<![CDATA[
+		UPDATE RESUME SET r_type=#{r_type}, r_name=#{r_name}, r_ex=#{r_ex}
+		imagefile=#{imagefile},filename=#{filename}
+		WHERE R_NO =#{r_no}
+			]]>
+	</update>
+	
+	<delete id="deleteResume" parameterType="ResumeVO">
+		DELETE FROM RESUME 
+		WHERE R_NO = #{r_no}
+	</delete>
+	
+</mapper>

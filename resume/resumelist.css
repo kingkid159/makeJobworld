@@ -1,0 +1,75 @@
+:root{
+	--color-white: #ffffff;
+    --color-skyblue:#64DBFF;
+    --color-lightblue:#51B1FE;
+    --color-blue:#2568EC;
+    --color-navy:#130E68;
+    --color-black:#000000;
+    
+    --fontsize-large:25px;
+    --fontsize-medium:20px;
+    --fontsize-regular:18px;
+    --fontsize-small:15px;
+    --fontsize-micro:12px;
+}
+
+
+body { 
+	margin:0; padding:0;
+}
+.resumeTitle {
+	width: 1150px; margin: 0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#resumeList_container {
+	width: 1150px; margin: 0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	height: 1000px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#resumeList_container .resumeList_content {
+	list-style: none;
+	width: 300px; height: 450px; float:left;
+	padding:0 15px; border: 2px solid var(--color-white);
+	margin:15px 24px; color:var(--color-black);
+	border-radius: 15px;
+	background-color:#51B1FE30;
+}
+#resumeList_container .resumeList_content:hover{
+	border: 2px solid var(--color-navy);
+}
+#resumeList_container .resumeList_content li:nth-of-type(1){
+	border: 1px solid var(--color-black); text-align: center;
+	margin:8px 0; border-radius: 15px; 
+	background-color:var(--color-white);
+}
+#resumeList_container .resumeList_content li:nth-of-type(2){
+	font-size:var(--fontsize-medium); font-weight: bold;
+	margin:10px 0px;
+}
+#resumeList_container .resumeList_content li:nth-of-type(3){
+	color:gray;
+}
+#resumeList_container .resumeList_content img {
+	width: 200px; height: 200px; 
+}
+
+#resumeList_table {
+	width: 1150px; margin: 0 auto;
+	text-align:center; height: 100px;
+}
+#resumeList_table a {
+	display:inline-block;
+	width: 20px; height: 20px;
+	border:1px solid var(--color-black);
+	text-decoration: none;
+}
+#resumeList_table a:hover{
+	background-color:var(--color-skyblue);
+}
+#resumeList_table .backAndNext_page{
+	width: 50px;
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="baselayout" template="/WEB-INF/views/common/linkInLayout.jsp">
+		<put-attribute name="linkInHeader" value="/WEB-INF/views/common/linkInHeader.jsp"/>
+		<put-attribute name="body"/>
+	</definition>
+	
+	<definition name="mainlayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp"/>
+		<put-attribute name="body"/>
+	</definition>
+	
+	<definition name="logonlayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/common/logonheader.jsp"/>
+		<put-attribute name="body"/> 
+	</definition>
+	
+	<definition name="mustloglayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/common/mustlogheader.jsp"/>
+		<put-attribute name="body"/> 
+	</definition>
+	
+	<definition name="/main/main" extends="mainlayout">
+		<put-attribute name="body" value="/WEB-INF/views/main/main.jsp" />
+	</definition>
+	
+</tiles-definitions>   
+
+
+
+
+
+
+    

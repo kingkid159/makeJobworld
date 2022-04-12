@@ -1,0 +1,177 @@
+:root{
+	--color-white: #ffffff;
+    --color-skyblue:#64DBFF;
+    --color-lightblue:#51B1FE;
+    --color-blue:#2568EC;
+    --color-navy:#130E68;
+    --color-black:#000000;
+    
+    --fontsize-large:25px;
+    --fontsize-medium:20px;
+    --fontsize-regular:18px;
+    --fontsize-small:15px;
+    --fontsize-micro:12px;
+}
+
+
+body { 
+	margin:0; padding:0;
+}
+
+.letterTitle {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+
+/*letterList.jsp*/
+#letter_container {
+	width: 1150px;
+	margin:40px auto;
+	display:grid;
+	grid-template-columns:575px 575px;
+	
+}
+#letter_contant {
+	width:530px;
+	height:180px;
+	text-overflow:ellipsis;
+	overflow:hidden;
+	white-space:nowrap;
+	border:1px solid var(--color-navy);
+	margin:12px;
+	padding: 12px;
+	
+}
+#letter_contant img {
+	width: 100px;
+	height:50px;
+	display: inline-block;
+}
+#letter_contant span {
+	color:gray;
+}
+#letter_pagingTable{
+	width: 1150px;
+	margin:0 auto;
+	text-align: center;
+	height: 100px;
+	border-top:2px solid var(--color-navy);
+}
+#letter_pagingTable a {
+	display:inline-block;
+	width: 20px; height: 20px;
+	border:1px solid var(--color-black);
+	text-decoration: none;
+}
+#letter_pagingTable a:hover{
+	background-color:var(--color-skyblue);
+}
+#letter_pagingTable .backAndNext_page{
+	width: 50px;
+}
+
+/*letterDetail.jsp*/
+
+#letter_detailTable{
+	width: 1150px;
+	margin:0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#letter_detailTable tr {
+	display:block;
+	margin:10px 0;
+}
+#letter_detailbtn {
+	width: 1150px;
+	margin:30px auto;
+	text-align: center;
+}
+#letter_detailbtn a{
+	display:inline-block;
+	border:1px solid var(--color-navy);
+	color:var(--color-navy);
+	padding:10px;
+}
+
+/*letterWrite.jsp*/
+#letter_writeForm {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	border-bottom: 2px solid var(--color-navy);
+}
+#letter_writeForm .res_area {
+	width: 1150px; height: 500px;
+	white-space: normal;
+	resize: none;
+	margin-top:20px;
+	margin-bottom: 20px;
+}
+#letter_writeBtn {
+	width: 1150px; 
+	margin:20px auto;
+	text-align: center;
+}
+#letter_writeBtn input {
+	background-color:var(--color-white);
+	border:1px solid var(--color-navy);
+	padding:10px;
+	cursor: pointer;
+}
+/*letterUpdate.jsp*/
+#letter_updateForm {
+	width: 1150px;
+	margin:0 auto;
+	margin-top:40px;
+	padding-bottom: 10px;
+	line-height: 40px;
+}
+#letter_updateId {
+	border-bottom: 1px solid #00000025;
+}
+#lTitle {
+	width: 400px;
+}
+#letter_updateForm .qna_title {
+	border-bottom: 1px solid #00000025;
+}
+#letter_updateForm .qes_textarea {
+	width: 1150px; 
+	white-space: normal;
+	resize: none;
+}
+#letter_updateForm .res_textarea {
+	width: 1150px; height:500px;
+	white-space: normal;
+	resize: none;
+}
+#letter_updateForm .qna_textarea {
+	width: 1150px; height:200px;
+	white-space: normal;
+	resize: none;
+}
+.img_container .img_content {
+	text-align: center;
+}
+.img_container img {
+	width: 600px; margin:0 auto;
+}
+#letter_updateBtn {
+	width: 1150px;
+	margin:0 auto;
+	text-align: center;
+	height: 100px;
+	line-height: 100px;
+}
+#letter_updateBtn input{
+	background-color: var(--color-white);
+	border:1px solid var(--color-navy);
+	cursor: pointer;
+	padding:10px;
+}

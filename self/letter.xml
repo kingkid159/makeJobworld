@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.letter">
+	<resultMap id="result" type="MyLetterVO" >
+	    <result property="mlno" column="MLNO"/>
+	    <result property="lno" column="LNO"/>
+	    <result property="lTitle" column="LTITLE"/>
+	    <result property="qes1" column="QES1"/>
+	    <result property="res1" column="RES1" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes2" column="QES2"/>
+	    <result property="res2" column="RES2" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes3" column="QES3"/>
+	    <result property="res3" column="RES3" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes4" column="QES4"/>
+	    <result property="res4" column="RES4" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes5" column="QES5"/>
+	    <result property="res5" column="RES5" jdbcType="CLOB" javaType="java.lang.String" />
+	    <result property="qes6" column="QES6"/>
+	    <result property="res6" column="RES6" jdbcType="CLOB" javaType="java.lang.String" />
+	</resultMap>
+	<select id="selectLetterList" 
+			resultType="LetterVO">
+		<![CDATA[
+			SELECT LNO,LTITLE,IMAGEFILE,QES1,RES1,QES2,RES2,QES3,RES3,QES4,RES4,QES5,RES5,QES6,RES6
+			FROM LETTER order by LNO
+		]]>
+	</select>
+	
+	<select id="selectPageNum" resultType="int">
+		SELECT count(*) FROM LETTER
+	</select>
+	<!-- 한 페이지에 보여줄 이력서 숫자  -->
+	<select id="selectLetterNo" parameterType="java.util.Map"
+	resultType="LetterVO">
+		<![CDATA[
+		SELECT NUM,LNO,LTITLE,IMAGEFILE,QES1,RES1,QES2,RES2,QES3,RES3,QES4,RES4,QES5,RES5,QES6,RES6
+		FROM (
+            SELECT ROW_NUMBER() OVER(ORDER BY LNO DESC) NUM , A.*
+            FROM LETTER A
+        )
+        WHERE  num>#{startRow} and num<=#{size}
+		]]>
+	</select>
+	
+	<!-- 선택한 이력서 내용 -->
+	<select id="selectNoLetter" parameterType="int"
+	resultType="LetterVO">
+	<![CDATA[
+		SELECT LNO,LTITLE,IMAGEFILE,QES1,RES1,QES2,RES2,QES3,RES3,QES4,RES4,QES5,RES5,QES6,RES6
+		FROM LETTER
+        WHERE LNO = #{no}
+	]]>
+	</select>
+	
+	<select id="selectLetterTitle" parameterType="int"
+	resultType="java.util.HashMap">
+	<![CDATA[
+		SELECT LNO,LTITLE,QES1,QES2,QES3,QES4,QES5,QES6,IMAGEFILE
+		FROM LETTER order by LNO
+        WHERE LNO = #{no}
+	]]>
+	</select>
+	
+
+	
+	<!-- 이력서 입력 -->
+	<insert id="insertLetter" parameterType="MyLetterVO">
+	<selectKey keyProperty="mlno" resultType="int" order="BEFORE">
+			SELECT MYLETTER_SEQ.nextval from dual
+	</selectKey>
+		<![CDATA[
+		INSERT INTO MYLETTER(MLNO,LNO,USERID,IMAGEFILE,lTitle,qes1,res1,qes2,res2,qes3,res3,qes4,res4,qes5,res5,qes6,res6)
+		VALUES(#{mlno},#{lno},#{userId},#{imagefile},#{lTitle},#{qes1,jdbcType=CLOB},#{res1,jdbcType=CLOB},
+		#{qes2,jdbcType=CLOB},#{res2,jdbcType=CLOB},#{qes3,jdbcType=CLOB},#{res3,jdbcType=CLOB},#{qes4,jdbcType=CLOB},
+		#{res4,jdbcType=CLOB},#{qes5,jdbcType=CLOB},#{res5,jdbcType=CLOB},#{qes6,jdbcType=CLOB},#{res6,jdbcType=CLOB}) 
+		]]>
+	</insert>
+		<!-- Insert into MYLETTER(userId,lno,lTitle,qes1,res1,qes2,res2,qes3,res3,qes4,res4,qes5,res5,qes6,res6,imagefile)
+		values(#{userId},#{lno},#{lTitle},#{qes1},#{res1},#{qes2},#{res2},#{qes3},#{res3},#{qes4},#{res4},#{qes5},#{res5},#{qes6},#{res6},#{imagefile}) -->
+	
+	<update id="updateLetter" parameterType="MyLetterVO">
+		<![CDATA[
+		UPDATE LETTER SET LNO=#{lno},LTITLE=#{lTtitle}, 
+		QES1=#{qes1,jdbcType=CLOB}, RES1=#{res1,jdbcType=CLOB},QES2=#{qes2,jdbcType=CLOB}, 
+		RES2=#{res2,jdbcType=CLOB},QES3=#{qes3,jdbcType=CLOB}, RES3=#{res3,jdbcType=CLOB},
+		QES4=#{qes4,jdbcType=CLOB}, RES4=#{res4,jdbcType=CLOB},QES5=#{qes5,jdbcType=CLOB}, 
+		RES5=#{res5,jdbcType=CLOB},QES6=#{qes6,jdbcType=CLOB}, RES6=#{res6,jdbcType=CLOB}
+		WHERE MLNO = #{mlno}
+		]]>
+	</update>
+	
+	<delete id="deleteLetter" parameterType="LetterVO">
+		DELETE FROM LETTER
+		WHERE LNO = #{lno}
+	</delete>
+	
+</mapper>

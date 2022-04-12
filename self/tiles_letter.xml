@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<definition name="/letter/letterList" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/letter/letterList.jsp" />
+	</definition>
+	
+	<definition name="/letter/letterDetail" extends="baselayout">
+		<put-attribute name="body" value="/WEB-INF/views/letter/letterDetail.jsp" />
+	</definition>
+	
+	<definition name="/letter/letterWrite" extends="mustloglayout">
+		<put-attribute name="body" value="/WEB-INF/views/letter/letterWrite.jsp" />
+	</definition>
+	
+</tiles-definitions>   
